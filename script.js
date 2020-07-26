@@ -28,19 +28,20 @@ function handleProductChange(isIncrease, item, itemPrice) {
   document.getElementById(item + "-price").innerText =
     itemNewQuantity * itemPrice;
 
-  // let productTotalAmount = document.getElementById("product-total").innerText;
-  // let productTotal = parseInt(productTotalAmount);
+  //SubTotal Price Inner Text
   let subTotal = getInput("sub-total");
-
   let subTotalPrice = subTotal + itemNewQuantity * itemPrice;
   document.getElementById("sub-total").innerText = `${subTotalPrice}`;
 
+  //Tax Price Inner Text
   let taxTotal = (document.getElementById("tax-total").innerText =
     (subTotalPrice / 100) * 8);
 
+  //Total Price Inner Text
   document.getElementById("total-price").innerText = subTotalPrice + taxTotal;
 }
 
+// Get Input Function
 function getInput(id) {
   let totalAmount = document.getElementById(id).innerText;
   return (Total = parseInt(totalAmount));
